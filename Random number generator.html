@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+body {text-align: center;}
+#main {
+background-color: #787878;
+background-repeat:no-repeat;
+background-size:100%;
+width: 90%;
+display: inline-block;
+min-height: 500px;
+}
+
+#headx {
+color: #FFFFFF;
+font-size: 50px;
+padding: 2%;	
+background-color: rgba(000, 0, 0, 0.7);
+width: 70%;
+display: inline-block;
+}
+
+.pars {
+color: #FFFFFF;
+font-size: 25px;
+padding: 2%;	
+background-color: rgba(000, 0, 0, 0.7);
+width: 70%;
+display: inline-block;
+}
+
+
+.pars2 {
+color: #FFFFFF;
+font-size: 19px;
+padding: 2%;	
+background-color: rgba(000, 0, 0, 0.7);
+width: 70%;
+display: inline-block;
+}
+
+.button {
+    background-color: #ff0000;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+input[type=text] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}
+
+</style>
+	
+<meta charset="UTF-8">
+    <title>title</title>
+  </head>
+  <body>
+  <h1>Random Number Generator</h1>
+  <p class="pars2">This will now generate as many numbers as one wants between 1 - 100.
+  The textbox below will be used to ask you how many random numbers you want.</p>
+  <input id="how many numbers" type="text"/>
+  <p id="demo">Numbers will appear here</p>
+  <p id="demo2">Odd numbers here</p>
+  <p id="demo3">How many odd numbers</p>
+  <p id="demo4">Smallest odd number</p>
+
+  <button onclick="Generate()" class="button">Generate !</button>
+  
+  <script>
+  
+ /* numbers = (1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+ 
+ for(numbers = numbers ; numbers != 0 ; ){
+ */
+ 
+ function Generate() {
+ 
+arr = []
+
+var input = document.getElementById("how many numbers").value;
+while(arr.length < input) {
+var randomNumber = Math.floor(Math.random() * 100) + 1;
+ if(arr.indexOf(randomNumber) > -1) continue;
+ arr[arr.length] = randomNumber;
+
+ 
+ }
+ document.getElementById("demo").innerHTML = arr;
+ odd(arr)
+ 
+ }
+ 
+ 
+ function odd(arr){
+ arr  // make an array
+for (var i = 0; i < arr.length; i++) { // loop through the array  
+    if ((arr[i] % 2) !== 1) { // odd numbers are found by finding all numbers that are divided by two and dont produce a whole number
+        arr.splice(i, 1); // splice the array in other words take out the even numbers 
+        i = i-1;
+    }
+}
+
+document.getElementById("demo2").innerHTML = "Odd numbers " + arr ; 
+howlong(arr)
+smallestOdd(arr)
+ }
+ 
+ 
+ function howlong(arr) {
+ document.getElementById("demo3").innerHTML = "How many numbers " + arr.length ; 
+ 
+ 
+ }
+ 
+ 
+ function smallestOdd(arr) {
+ 
+var what = arr;
+var xyz = Math.min.apply(null, what);
+document.getElementById("demo4").innerHTML = "The smallest odd number is: " + xyz +"<br>Ok I'm done now thank you for using this program";
+
+ 
+ 
+ }
+ 
+ 
+</script>
+ 
+ </body>
+</html>

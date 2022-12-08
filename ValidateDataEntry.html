@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <style>
+body {text-align: center;}
+#main {
+background-repeat:no-repeat;
+    background-size: 100%;
+width: 90%;
+display: inline-block;
+min-height: 500px;
+}
+
+#headx {
+color: #FFFFFF;
+font-size: 50px;
+padding: 2%;	
+background-color: rgba(000, 0, 0, 0.7);
+width: 70%;
+display: inline-block;
+}
+
+.pars {
+color: #FFFFFF;
+font-size: 25px;
+padding: 2%;	
+background-color: rgba(000, 0, 0, 0.7);
+width: 70%;
+display: inline-block;
+}
+
+
+.pars2 {
+color: #FFFFFF;
+font-size: 19px;
+padding: 2%;	
+background-color: rgba(000, 0, 0, 0.7);
+width: 70%;
+display: inline-block;
+}
+
+.button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+input[type=text] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}
+
+</style>
+  
+  
+  
+  
+  
+    <meta charset="UTF-8">
+    <title>title</title>
+  </head>
+  <body>
+  <h1>Age checker for asmission</h1>
+  <p class="pars2">This will check if the age is 0 - 18 the person cant come in<br>
+  If they are 18 or over but less than 21 they can come in but not drink<br>
+  if they are 21 or over they can come in and drink</p>
+  
+  <p class="pars2">The next part is to alert the fine for breach of this rule<br>
+  It takes the age of the person and multiplies it by 20 and adds 100 if they are under 18</br>
+  It takes the age of the person and multiplies it by 22 if they are 18 - 21</p>
+  <p class="pars">What Age are you?</p>
+  <input id="age1" type="text"/>
+  <p class="pars">What is your name?</p>
+  <input id="name" type="text"/>
+  
+  
+  <script>
+  
+  
+  function liam(){
+  var one = document.getElementById("age1").value;
+  var two = document.getElementById("name").value;
+  var fine = parseInt(one) * 22 + 100
+  //var b = 2;
+  
+  if (parseInt(one) < 18) {
+  document.getElementById("ans").innerHTML = "Hi " + two + " you are Too Young to come in";
+  window.alert("The Fine is " + fine)
+  }
+  else if (one >= 18 && one < 21){
+  document.getElementById("ans").innerHTML ="Hi " + two + " you can come in but you can not drink";
+  window.alert("The Fine is " + one * 22)
+  }
+  else if (one >= 21){
+  document.getElementById("ans").innerHTML ="Hi " + two + " you can come in and have a drink";
+  
+  }
+  
+  }
+  
+  
+  
+  function doit() {
+  var one = document.getElementById("age1").value;
+  
+  if (one >= 18){
+  document.getElementById("ans").innerHTML = "Have a pint";
+  }
+  else {
+  document.getElementById("ans").innerHTML = "You cant drink";
+  }
+  
+  }
+  </script>
+  <button onclick="liam()" class="button">Press Me</button>
+  <br>
+  <p id="ans" class="pars">Cinema Experience!</p>
+  
+  </body>
+</html>
